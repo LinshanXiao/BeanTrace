@@ -52,7 +52,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .db-dot{width:10px;height:10px;border-radius:50%}
 .db-dot.r{background:#f87171}.db-dot.y{background:#fbbf24}.db-dot.g{background:#34d399}
 .db-url{margin-left:auto;font-family:var(--mono);font-size:.6rem;color:rgba(196,181,253,.5);letter-spacing:.08em}
-.db-body{display:grid;grid-template-columns:190px 1fr;min-height:400px}
+.db-body{display:grid;grid-template-columns:190px 1fr;min-height:420px}
 
 /* SIDEBAR */
 .db-sidebar{background:rgba(255,255,255,0.04);border-right:1px solid rgba(196,181,253,0.1);padding:1.2rem .8rem;display:flex;flex-direction:column;gap:.25rem}
@@ -62,10 +62,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .db-nav-item.active{background:rgba(139,92,246,.28);color:var(--lavender)}
 .db-nav-item svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0}
 
+/* UPLOAD BUTTON */
+.db-sidebar-bottom{margin-top:auto;padding-top:1rem;border-top:1px solid rgba(196,181,253,0.1);display:flex;flex-direction:column;gap:.6rem}
+.db-upload-btn{display:flex;align-items:center;gap:.5rem;width:100%;padding:.55rem .8rem;border-radius:6px;font-size:.72rem;color:var(--lavender);background:rgba(139,92,246,.2);border:1px dashed rgba(196,181,253,.3);cursor:pointer;transition:background .2s,border-color .2s}
+.db-upload-btn:hover{background:rgba(139,92,246,.35);border-color:rgba(196,181,253,.6)}
+.db-upload-btn svg{flex-shrink:0}
+#upload-feedback{font-family:var(--mono);font-size:.52rem;color:rgba(196,181,253,.4);padding:.3rem .2rem;line-height:1.6;display:none}
+
+/* AI BADGE */
+.ai-badge{display:flex;align-items:center;gap:.6rem;padding:.6rem .75rem;border-radius:8px;background:linear-gradient(135deg,rgba(109,40,217,.25),rgba(196,181,253,.08));border:1px solid rgba(196,181,253,.2)}
+.ai-badge-icon{width:26px;height:26px;border-radius:6px;background:linear-gradient(135deg,#6d28d9,#a78bfa);display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:aiGlow 2.5s ease-in-out infinite}
+.ai-badge-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:1.8}
+@keyframes aiGlow{0%,100%{box-shadow:0 0 6px rgba(139,92,246,.4)}50%{box-shadow:0 0 14px rgba(139,92,246,.85)}}
+.ai-badge-label{display:block;font-size:.65rem;font-weight:500;color:var(--lavender);line-height:1;margin-bottom:.2rem}
+.ai-badge-model{display:block;font-family:var(--mono);font-size:.52rem;color:rgba(196,181,253,.4);letter-spacing:.06em}
+
 /* MAIN */
 .db-main{padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:1.1rem;overflow:hidden}
-
-/* VIEWS */
 .db-view{display:none;flex-direction:column;gap:1.1rem}
 .db-view.active{display:flex}
 
@@ -114,24 +127,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .trace-conf-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--violet),var(--lavender))}
 .trace-conf-val{font-family:var(--mono);font-size:.55rem;color:var(--lavender)}
 
-/* CHART */
-.db-chart-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(196,181,253,.1);border-radius:10px;padding:.9rem 1rem}
-.chart-label{font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,181,253,.4);margin-bottom:.8rem}
-.bars{display:flex;align-items:flex-end;gap:.5rem;height:70px}
-.bar-col{display:flex;flex-direction:column;align-items:center;gap:.3rem;flex:1}
-.bar{width:100%;border-radius:4px 4px 0 0}
-.bar.h{background:rgba(248,113,113,.6)}.bar.m{background:rgba(251,191,36,.55)}.bar.l{background:rgba(52,211,153,.55)}
-.bar-lbl{font-family:var(--mono);font-size:.5rem;color:rgba(196,181,253,.35);text-align:center;white-space:nowrap}
-
 /* DOCUMENTS VIEW */
 .doc-list{display:flex;flex-direction:column;gap:.6rem}
 .doc-item{display:flex;align-items:center;gap:.9rem;padding:.7rem .9rem;background:rgba(255,255,255,0.04);border:1px solid rgba(196,181,253,.1);border-radius:8px;cursor:pointer;transition:background .2s}
 .doc-item:hover{background:rgba(139,92,246,.12)}
 .doc-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .doc-icon svg{width:16px;height:16px;fill:none;stroke-width:1.5}
-.doc-icon.pdf{background:rgba(248,113,113,.15)} .doc-icon.pdf svg{stroke:#fca5a5}
-.doc-icon.word{background:rgba(139,92,246,.2)} .doc-icon.word svg{stroke:var(--lavender)}
-.doc-icon.xls{background:rgba(52,211,153,.15)} .doc-icon.xls svg{stroke:#6ee7b7}
+.doc-icon.pdf{background:rgba(248,113,113,.15)}.doc-icon.pdf svg{stroke:#fca5a5}
+.doc-icon.word{background:rgba(139,92,246,.2)}.doc-icon.word svg{stroke:var(--lavender)}
+.doc-icon.xls{background:rgba(52,211,153,.15)}.doc-icon.xls svg{stroke:#6ee7b7}
 .doc-name{font-size:.72rem;color:rgba(196,181,253,.8);flex:1}
 .doc-date{font-family:var(--mono);font-size:.58rem;color:rgba(196,181,253,.35)}
 .doc-status{font-family:var(--mono);font-size:.55rem;padding:.15rem .5rem;border-radius:4px}
@@ -155,7 +159,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .progress-label{display:flex;justify-content:space-between;font-size:.65rem;color:rgba(196,181,253,.6)}
 .progress-bar-bg{height:5px;background:rgba(255,255,255,0.08);border-radius:99px;overflow:hidden}
 .progress-bar-fill{height:100%;border-radius:99px}
-.fill-h{background:#f87171}.fill-m{background:#fbbf24}.fill-l{background:#34d399}.fill-v{background:var(--violet-lg)}
+.fill-h{background:#f87171}.fill-m{background:#fbbf24}.fill-l{background:#34d399}
 
 /* RISK REPORTS VIEW */
 .report-list{display:flex;flex-direction:column;gap:.6rem}
@@ -171,7 +175,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .fn-eyebrow{display:inline-block;font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--violet);margin-bottom:.9rem}
 .fn-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--plum);line-height:1.1}
 .fn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.fn-card{background:var(--white);border:1px solid var(--border-light);border-radius:16px;padding:2rem 1.6rem;position:relative;overflow:hidden;transition:box-shadow .25s,transform .2s;cursor:default}
+.fn-card{background:var(--white);border:1px solid var(--border-light);border-radius:16px;padding:2rem 1.6rem;position:relative;overflow:hidden;transition:box-shadow .25s,transform .2s}
 .fn-card:hover{box-shadow:0 16px 48px rgba(109,40,217,.1);transform:translateY(-4px)}
 .fn-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--violet),var(--lavender))}
 .fn-stage{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lavender);margin-bottom:1rem;background:var(--cream-dim);display:inline-block;padding:.2rem .6rem;border-radius:4px}
@@ -182,26 +186,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .fn-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem}
 .fn-tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;color:var(--violet);background:var(--lilac);padding:.2rem .55rem;border-radius:4px}
 
-/* upload files */
-.db-upload-btn {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  width: 100%;
-  padding: .55rem .8rem;
-  border-radius: 6px;
-  font-size: .72rem;
-  color: var(--lavender);
-  background: rgba(139,92,246,.2);
-  border: 1px dashed rgba(196,181,253,.3);
-  cursor: pointer;
-  transition: background .2s, border-color .2s;
-  margin-top: .5rem;
-}
-.db-upload-btn:hover {
-  background: rgba(139,92,246,.35);
-  border-color: rgba(196,181,253,.6);
-}
 /* TECH STRIP */
 .tech-strip{background:var(--plum);padding:4rem 3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .ts-label{font-family:var(--mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lavender);margin-bottom:.8rem}
@@ -248,7 +232,6 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
     <a href="#technology" class="btn-outline-white">Our Technology →</a>
   </div>
 
-  <!-- DASHBOARD -->
   <div class="dashboard-wrap">
     <div class="dashboard-frame">
       <div class="db-topbar">
@@ -257,7 +240,7 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
       </div>
       <div class="db-body">
 
-        <!-- SIDEBAR -->
+        <!-- ══ SIDEBAR ══ -->
         <div class="db-sidebar">
           <div class="db-sidebar-title">Navigation</div>
           <div class="db-nav-item active" data-view="overview">
@@ -275,12 +258,40 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
           <div class="db-nav-item" data-view="analytics">
             <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Analytics
           </div>
+
+          <!-- ↓↓↓ UPLOAD + AI BADGE — bottom of sidebar ↓↓↓ -->
+          <div class="db-sidebar-bottom">
+            <label for="file-upload" class="db-upload-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              Upload Document
+            </label>
+            <input id="file-upload" type="file" accept=".pdf,.docx,.xlsx" multiple style="display:none">
+            <div id="upload-feedback"></div>
+
+            <div class="ai-badge">
+              <div class="ai-badge-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5Z" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <span class="ai-badge-label">AI Powered</span>
+                <span class="ai-badge-model">GPT-5 · RAG</span>
+              </div>
+            </div>
+          </div>
+          <!-- ↑↑↑ end sidebar bottom ↑↑↑ -->
+
         </div>
 
-        <!-- MAIN -->
+        <!-- ══ MAIN ══ -->
         <div class="db-main">
 
-          <!-- ── OVERVIEW VIEW ── -->
+          <!-- OVERVIEW -->
           <div class="db-view active" id="view-overview">
             <div class="db-row">
               <div class="db-metric"><div class="db-metric-label">Total Suppliers</div><div class="db-metric-num">148</div><div class="db-metric-sub">Assessed this quarter</div></div>
@@ -288,7 +299,6 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
               <div class="db-metric"><div class="db-metric-label">Medium Risk</div><div class="db-metric-num md">54</div><div class="db-metric-sub">Further verification</div></div>
               <div class="db-metric"><div class="db-metric-label">Low Risk</div><div class="db-metric-num lo">71</div><div class="db-metric-sub">No evidence found</div></div>
             </div>
-
             <div class="db-table-area">
               <div class="db-table-wrap">
                 <div style="padding:.5rem .8rem;border-bottom:1px solid rgba(196,181,253,.08);font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,181,253,.35);display:flex;align-items:center;justify-content:space-between">
@@ -301,8 +311,6 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
                 <div class="db-table-row" data-id="2"><span>Alpine Foods GmbH</span><span>Germany</span><span>03 May 2026</span><span><span class="risk-pill L">● Low</span></span></div>
                 <div class="db-table-row" data-id="3"><span>Sunrise Agri Corp.</span><span>Brazil</span><span>28 Apr 2026</span><span><span class="risk-pill H">● High</span></span></div>
               </div>
-
-              <!-- AI SOURCE TRACE PANEL -->
               <div class="trace-panel" id="trace-panel">
                 <div class="trace-header">
                   <div class="trace-header-icon"><svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
@@ -312,22 +320,10 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
               </div>
             </div>
           </div>
-          <!--upload files-->
-          <div style="margin-top:auto;padding-top:1rem;border-top:1px solid rgba(196,181,253,0.1)">
-            <label for="file-upload" class="db-upload-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="17 8 12 3 7 8"/>
-                <line x1="12" y1="3" x2="12" y2="15"/>
-              </svg>
-              Upload Document
-            </label>
-            <input id="file-upload" type="file" accept=".pdf,.docx,.xlsx" multiple style="display:none">
-            <div id="upload-feedback" style="font-family:'DM Mono',monospace;font-size:.55rem;color:rgba(196,181,253,.4);padding:.4rem .3rem;line-height:1.5;display:none"></div>
-          </div>
-          <!-- ── DOCUMENTS VIEW ── -->
+
+          <!-- DOCUMENTS -->
           <div class="db-view" id="view-documents">
-            <div style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,181,253,.4);margin-bottom:.3rem">Uploaded Documents — 6 files</div>
+            <div style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,181,253,.4);margin-bottom:.3rem">Uploaded Documents — 5 files</div>
             <div class="doc-list">
               <div class="doc-item"><div class="doc-icon pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="doc-name">Evergreen_ThirdParty_Audit_2026.pdf</div><div class="doc-date">12 May 2026</div><div class="doc-status done">Processed</div></div>
               <div class="doc-item"><div class="doc-icon word"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="doc-name">Horizon_ESG_Statement_FY2025.docx</div><div class="doc-date">08 May 2026</div><div class="doc-status done">Processed</div></div>
@@ -337,7 +333,7 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
             </div>
           </div>
 
-          <!-- ── RISK REPORTS VIEW ── -->
+          <!-- RISK REPORTS -->
           <div class="db-view" id="view-reports">
             <div style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,181,253,.4);margin-bottom:.3rem">Generated Reports — Supply Chain Transparency Briefs</div>
             <div class="report-list">
@@ -348,7 +344,7 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
             </div>
           </div>
 
-          <!-- ── SUPPLIERS VIEW ── -->
+          <!-- SUPPLIERS -->
           <div class="db-view" id="view-suppliers">
             <div style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,181,253,.4);margin-bottom:.3rem">Supplier Register — 148 assessed</div>
             <div class="sup-grid">
@@ -359,7 +355,7 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
             </div>
           </div>
 
-          <!-- ── ANALYTICS VIEW ── -->
+          <!-- ANALYTICS -->
           <div class="db-view" id="view-analytics">
             <div class="db-row">
               <div class="db-metric"><div class="db-metric-label">Avg. Processing Time</div><div class="db-metric-num" style="color:var(--lavender)">1h 42m</div><div class="db-metric-sub">Per document batch</div></div>
@@ -441,7 +437,7 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
   <div class="ts-pills">
     <div class="ts-pill reveal reveal-d1">
       <div class="ts-pill-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-      <div class="ts-pill-text"><strong>GPT-5 Large Language Model</strong><span>Contextual passage interpretation across audit reports</span></div>
+      <div class="ts-pill-text"><strong>GPT-4 Large Language Model</strong><span>Contextual passage interpretation across audit reports</span></div>
     </div>
     <div class="ts-pill reveal reveal-d2">
       <div class="ts-pill-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
@@ -460,55 +456,23 @@ footer{background:var(--plum-mid);padding:2.5rem 3.5rem;display:flex;justify-con
 </footer>
 
 <script>
-// ── TAB DATA ──
 const traceData = [
-  {
-    supplier: "Evergreen Textiles Co.", location: "Bangladesh", date: "12 May 2026", risk: "H",
-    doc: "Evergreen_ThirdParty_Audit_2026.pdf", page: "Page 7, Para 3",
-    quote: "Workers are required to remain in company-provided dormitories during peak production periods and movement outside the facility is <mark>restricted between 10pm and 6am without prior written approval</mark> from management.",
-    finding: "<strong>Forced Labour Indicator detected.</strong> Restriction of worker movement outside designated hours is classified as a coercive labour practice under ILO Convention No. 29.",
-    db: "Global Slavery Index · ILO C.29",
-    confidence: 91
-  },
-  {
-    supplier: "Horizon Packaging Ltd.", location: "Vietnam", date: "08 May 2026", risk: "M",
-    doc: "Horizon_ESG_Statement_FY2025.docx", page: "Page 12, Para 1",
-    quote: "Overtime hours averaged <mark>68 hours per week</mark> during Q3 production cycles. Workers indicated verbal agreements were made for overtime compensation.",
-    finding: "<strong>Excessive Working Hours flagged.</strong> 68 hrs/week exceeds ILO standard of 48 hrs. Verbal-only compensation agreements represent a wage documentation risk requiring verification.",
-    db: "ILO Hours of Work Convention · Know The Chain",
-    confidence: 74
-  },
-  {
-    supplier: "Alpine Foods GmbH", location: "Germany", date: "03 May 2026", risk: "L",
-    doc: "Alpine_Foods_ILO_Compliance.docx", page: "Page 3, Para 2",
-    quote: "All employees hold individually signed contracts in their native language. Working hours are <mark>capped at 40 hours per week</mark> with documented overtime consent and full statutory benefits.",
-    finding: "<strong>No indicators of modern slavery identified.</strong> Documentation demonstrates compliance with EU labour directives and ILO core conventions.",
-    db: "ILO Core Conventions · Know The Chain",
-    confidence: 97
-  },
-  {
-    supplier: "Sunrise Agri Corp.", location: "Brazil", date: "28 Apr 2026", risk: "H",
-    doc: "Sunrise_Certification_Records.xlsx", page: "Sheet 2, Row 14–18",
-    quote: "Seasonal workers are sourced via third-party labour brokers. <mark>Recruitment fees equivalent to 3 months' wages</mark> are deducted from initial pay. Workers are housed in employer-controlled accommodation.",
-    finding: "<strong>Debt Bondage indicator detected.</strong> Wage deductions for recruitment fees combined with employer-controlled housing constitutes a high-risk debt bondage pattern per the Global Slavery Index framework.",
-    db: "Global Slavery Index · ILO C.29 · Know The Chain",
-    confidence: 88
-  }
+  {supplier:"Evergreen Textiles Co.",location:"Bangladesh",date:"12 May 2026",risk:"H",doc:"Evergreen_ThirdParty_Audit_2026.pdf",page:"Page 7, Para 3",quote:"Workers are required to remain in company-provided dormitories during peak production periods and movement outside the facility is <mark>restricted between 10pm and 6am without prior written approval</mark> from management.",finding:"<strong>Forced Labour Indicator detected.</strong> Restriction of worker movement outside designated hours is classified as a coercive labour practice under ILO Convention No. 29.",db:"Global Slavery Index · ILO C.29",confidence:91},
+  {supplier:"Horizon Packaging Ltd.",location:"Vietnam",date:"08 May 2026",risk:"M",doc:"Horizon_ESG_Statement_FY2025.docx",page:"Page 12, Para 1",quote:"Overtime hours averaged <mark>68 hours per week</mark> during Q3 production cycles. Workers indicated verbal agreements were made for overtime compensation.",finding:"<strong>Excessive Working Hours flagged.</strong> 68 hrs/week exceeds ILO standard of 48 hrs. Verbal-only compensation agreements represent a wage documentation risk requiring verification.",db:"ILO Hours of Work Convention · Know The Chain",confidence:74},
+  {supplier:"Alpine Foods GmbH",location:"Germany",date:"03 May 2026",risk:"L",doc:"Alpine_Foods_ILO_Compliance.docx",page:"Page 3, Para 2",quote:"All employees hold individually signed contracts in their native language. Working hours are <mark>capped at 40 hours per week</mark> with documented overtime consent and full statutory benefits.",finding:"<strong>No indicators of modern slavery identified.</strong> Documentation demonstrates compliance with EU labour directives and ILO core conventions.",db:"ILO Core Conventions · Know The Chain",confidence:97},
+  {supplier:"Sunrise Agri Corp.",location:"Brazil",date:"28 Apr 2026",risk:"H",doc:"Sunrise_Certification_Records.xlsx",page:"Sheet 2, Row 14–18",quote:"Seasonal workers are sourced via third-party labour brokers. <mark>Recruitment fees equivalent to 3 months' wages</mark> are deducted from initial pay. Workers are housed in employer-controlled accommodation.",finding:"<strong>Debt Bondage indicator detected.</strong> Wage deductions for recruitment fees combined with employer-controlled housing constitutes a high-risk debt bondage pattern per the Global Slavery Index framework.",db:"Global Slavery Index · ILO C.29 · Know The Chain",confidence:88}
 ];
 
-// ── upload file ──
+// Upload feedback
 document.getElementById('file-upload').addEventListener('change', function() {
-  const feedback = document.getElementById('upload-feedback');
+  const fb = document.getElementById('upload-feedback');
   const files = Array.from(this.files);
   if (!files.length) return;
-  feedback.style.display = 'block';
-  feedback.innerHTML = files.map(f =>
-    `✓ ${f.name} <span style="color:rgba(196,181,253,.25)">(${(f.size/1024).toFixed(0)} KB)</span>`
-  ).join('<br>');
+  fb.style.display = 'block';
+  fb.innerHTML = files.map(f => `✓ ${f.name} <span style="color:rgba(196,181,253,.25)">(${(f.size/1024).toFixed(0)} KB)</span>`).join('<br>');
 });
 
-
-// ── SIDEBAR NAVIGATION ──
+// Sidebar tabs
 document.querySelectorAll('.db-nav-item').forEach(item => {
   item.addEventListener('click', () => {
     document.querySelectorAll('.db-nav-item').forEach(n => n.classList.remove('active'));
@@ -516,30 +480,20 @@ document.querySelectorAll('.db-nav-item').forEach(item => {
     item.classList.add('active');
     const view = document.getElementById('view-' + item.dataset.view);
     if (view) view.classList.add('active');
-    // hide trace panel when switching tabs
     document.getElementById('trace-panel').classList.remove('open');
     document.querySelectorAll('.db-table-row').forEach(r => r.classList.remove('selected'));
   });
 });
 
-// ── TABLE ROW CLICK → SOURCE TRACE ──
+// Row click → AI Source Trace
 document.querySelectorAll('.db-table-row').forEach(row => {
   row.addEventListener('click', () => {
-    const id = parseInt(row.dataset.id);
-    const d = traceData[id];
-    const panel = document.getElementById('trace-panel');
-    const body = document.getElementById('trace-body');
-
+    const d = traceData[parseInt(row.dataset.id)];
     document.querySelectorAll('.db-table-row').forEach(r => r.classList.remove('selected'));
     row.classList.add('selected');
-
-    body.innerHTML = `
+    document.getElementById('trace-body').innerHTML = `
       <div class="trace-supplier">${d.supplier}</div>
-      <div class="trace-meta">
-        <span class="trace-tag">${d.location}</span>
-        <span class="trace-tag">${d.date}</span>
-        <span class="trace-tag risk-${d.risk}">${d.risk === 'H' ? '🔴 High' : d.risk === 'M' ? '🟡 Medium' : '🟢 Low'}</span>
-      </div>
+      <div class="trace-meta"><span class="trace-tag">${d.location}</span><span class="trace-tag">${d.date}</span><span class="trace-tag">${d.risk==='H'?'🔴 High':d.risk==='M'?'🟡 Medium':'🟢 Low'}</span></div>
       <div class="trace-divider"></div>
       <div class="trace-source-label">Source Document</div>
       <div class="trace-meta" style="margin-top:.3rem"><span class="trace-tag">${d.doc}</span><span class="trace-tag">${d.page}</span></div>
@@ -552,16 +506,15 @@ document.querySelectorAll('.db-table-row').forEach(row => {
         <span class="trace-conf-label">Confidence</span>
         <div class="trace-conf-bar"><div class="trace-conf-fill" style="width:${d.confidence}%"></div></div>
         <span class="trace-conf-val">${d.confidence}%</span>
-      </div>
-    `;
-    panel.classList.add('open');
+      </div>`;
+    document.getElementById('trace-panel').classList.add('open');
   });
 });
 
-// ── SCROLL REVEAL ──
+// Scroll reveal
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-}, { threshold: 0.1 });
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+}, {threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
